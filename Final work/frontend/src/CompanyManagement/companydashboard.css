@@ -1,0 +1,71 @@
+.company-dashboard {
+    padding: 2rem;
+    background-color: #fffaf3;
+    font-family: "Georgia", serif;
+    color: #1f1d1b;
+  }
+  
+  .dashboard-title {
+    color: #fea116;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .company-info {
+    background-color: #fdf4e3;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+  }
+  
+  .job-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .job-card {
+    border: 1px solid #ccc;
+    background: white;
+    border-radius: 8px;
+    padding: 1rem;
+    width: 300px;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+  }
+  
+  .job-card h3 {
+    color: #fea116;
+  }
+  
+  .job-card button {
+    margin-top: 0.5rem;
+    background-color: #fea116;
+    border: none;
+    padding: 0.5rem 1rem;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .applicant-section {
+    margin-top: 2rem;
+  }
+  
+  .applicant-card {
+    background-color: #fdf4e3;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+  
+  .verdict-button {
+    margin-top: 0.5rem;
+    background-color: #1f1d1b;
+    color: white;
+    padding: 0.4rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  

@@ -1,0 +1,81 @@
+.createjob-container {
+    background-color: #fffaf3;
+    min-height: 100vh;
+    padding-top: 60px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .createjob-box {
+    background-color: #fdf4e3;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    width: 90%;
+    max-width: 600px;
+  }
+  
+  .createjob-box h2 {
+    color: #1f1d1b;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  
+  .createjob-box form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .createjob-box input,
+  .createjob-box textarea {
+    margin-bottom: 1rem;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+  }
+  
+  .createjob-box textarea {
+    min-height: 100px;
+    resize: vertical;
+  }
+  
+  label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .react-select__control {
+    border-radius: 8px;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .react-select__option--is-selected {
+    background-color: #ffe0b3 !important;
+    color: black !important;
+    font-weight: bold;
+  }
+  
+  .submit-btn {
+    background-color: #fea116;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+  }
+  
+  .submit-btn:hover {
+    background-color: #e28e00;
+  }
+  
+  .job-message {
+    margin-top: 1rem;
+    text-align: center;
+    font-weight: bold;
+    color: #1f1d1b;
+  }
+  
