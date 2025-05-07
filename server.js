@@ -31,6 +31,7 @@ const loginCompanyRouter = require('./route/logincompany');
 const courseRouter = require('./route/course');
 const jobsRouter = require('./route/jobs');
 const chromaRouter = require('./route/chroma');
+const enrollRouter = require('./route/enroll');
 
 
 //connect db
@@ -61,6 +62,7 @@ app.use('/api/loginCompany', loginCompanyRouter);
 app.use('/api/course', courseRouter);
 app.use('/api/jobs', jobsRouter);
 app.use('/api/chroma', chromaRouter);
+app.use('/api/enroll', enrollRouter);
 
 
 // app.use('/api', versionHistoryRouter);
