@@ -21,7 +21,7 @@ findUserByEmail(email) {
     
   return data;
 }
-async function createUser({ name, email, password }) {
+async function createUser({ name, email, password, date_of_birth, contact, gender, religion, bio, institution }) {
     const hashedPassword = await bcrypt.hash(password, 10);
   
     const { data, error } = await supabase
@@ -30,7 +30,13 @@ async function createUser({ name, email, password }) {
         {
           name,
           email,
-          password: hashedPassword
+          password: hashedPassword,
+          date_of_birth: date_of_birth,
+          contact: contact,
+          gender: gender, 
+          religion: religion,
+          bio: bio,
+          institution: institution
         }
       ])
       .single(); // This ensures that it returns a single row if the insertion is successful
@@ -65,31 +71,53 @@ async function updateProfileImage(userId, imageUrl) {
     // console.log(data)
     return {  error };
 }
-// update user joining user and survey designer table with user_id
-
-async function updateSurveyDesigner(userId, data) {
-    console.log(userId);
-    // console.log(data);
-    const { error } = await supabase.rpc('update_survey_designer', {
-        u_id: userId,
-        u_name: data.name,
-        u_email: data.email,
-        u_secret_question: data.secret_question,
-        u_secret_answer: data.secret_answer,
-        u_address: data.address,
-        u_date_of_birth: data.date_of_birth,
-        u_contact: data.contact,
-        u_gender: data.gender,
-        u_religion: data.religion,
-        u_affiliation: data.affiliation,
-        u_research_field: data.research_field,
-        u_profession: data.profession,
-        u_years_of_experience: data.years_of_experience,
-        u_profile_link: data.profile_link
-        
-    });
-    return { error };
+// getUserId;
+async function getUserId(email) {
+    const { data, error } = await supabase
+    .from('user')
+    .select('user_id')
+    .eq('email', email)
+    if (error) {
+        console.error(error)
+        return null
+    }
+    
+  return data;
 }
+
+// get skill type id
+async function getSkillTypeId(skill_type) {
+    const { data, error } = await supabase
+    .from('skill_list')
+    .select('id')
+    .eq('skill_type', skill_type)
+    if (error) {
+        console.error(error)
+        return null
+    }
+    
+  return data;
+}
+
+// insert user_skilll_id and user_id to user_skill_relation table
+
+async function insertUserSkillType(user_id, skill_type_id) {
+    const { data, error } = await supabase
+    .from('user_skill_relation')
+    .insert([
+        {
+            user_id: user_id,
+            skill_id: skill_type_id
+        }
+    ])
+    if (error) {
+        console.error(error)
+        return null
+    }
+    
+  return data;
+}
+
 // delete user
 async function deleteUser(userId) {
     const { data, error } = await supabase
@@ -111,6 +139,6 @@ async function updatePassword(userId, password) {
 
 
 module.exports = {
-    findUserByEmail,
-    createUser, findDesignerByid, updateProfileImage, updateSurveyDesigner,
-    deleteUser, updatePassword};
+    findUserByEmail, getSkillTypeId, insertUserSkillType,
+    createUser, findDesignerByid, updateProfileImage,
+    deleteUser, updatePassword, getUserId};

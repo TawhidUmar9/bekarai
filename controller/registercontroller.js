@@ -4,7 +4,7 @@ const User = require('../model/user');
 exports.register = async (req, res) => {
     try {
         const
-        {name, email, password, date_of_birth, contact, gender, religion, image, bio, skill_type_array} = req.body;
+        {name, email, password,date_of_birth, contact, gender, religion, bio, institution, skill_type_array} = req.body;
         console.log(req.body);
         // Validate input data (check for missing fields, etc.)
         if (!name || !email || !password) {
@@ -15,12 +15,22 @@ exports.register = async (req, res) => {
         user = await User.findUserByEmail(email);
         console.log(user.length);
         if (user.length != 0) {
-            // console.log(user);
             return res.status(400).json({error: 'user already exists'});
         }
         // Create a new user record in the database
-        const new_name = await User.createUser({ name, email, password });
-
+        const new_name = await User.createUser({ name, email, password, date_of_birth, contact, gender, religion, bio, institution });
+        // get the user id
+        const user_id = await User.getUserId(email); 
+        console.log(user_id[0].user_id);
+        //for each skill type in the array, insert into the database
+        for (let i = 0; i < skill_type_array.length; i++) {
+            const skill_type = skill_type_array[i];
+            const skill_type_id = await User.getSkillTypeId(skill_type);
+            if (skill_type_id) {
+                console.log(skill_type_id[0].id);
+                await User.insertUserSkillType(user_id[0].user_id, skill_type_id[0].id);
+            }
+        }
         if (!new_name) {
             return res.status(500).json({ error: 'Internal server error' });
         }
