@@ -25,6 +25,7 @@ const loginRouter = require('./route/login');
 const profileRouter = require('./route/profile');
 const summarizeRouter = require('./route/summerize');
 const fetchskillRouter = require('./route/fetchskill');
+const registerCompanyRouter = require('./route/registercompany');
 
 // const versionHistoryRouter= require('./route/projectversioning');
 // const surveyversionHistoryRouter= require('./route/surveyversioning');
@@ -58,6 +59,7 @@ app.use('/api/login', loginRouter);
 app.use('/api/profile', profileRouter);
 app.use('/api/summerize', summarizeRouter);
 app.use('/api/fetchskill', fetchskillRouter);
+app.use('/api/registercompany', registerCompanyRouter);
 
 // app.use('/api', versionHistoryRouter);
 // app.use('/api', surveyversionHistoryRouter);
