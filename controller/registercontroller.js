@@ -4,13 +4,17 @@ const User = require('../model/user');
 exports.register = async (req, res) => {
     try {
         const
-        {fisrtName, lastName, email, password, confirmPassword, institution, date_of_birth, gender, religion, contact, bio, skill_type_array} = req.body;
-        console.log(req.body);
+        {firstName, lastName, email, password, institution, date_of_birth, gender, religion, contact, bio, skill_type_array} = req.body;
+        //console.log(req.body);
         // Validate input data (check for missing fields, etc.)
-        if (!fisrtName || !lastName || !email || !password) {
+        console.log('firstName', firstName);
+        console.log('lastName', lastName);
+        console.log('email', email);
+        console.log('password', password);
+        if (!firstName || !lastName || !email || !password) {
             return res.status(404).json({error: 'All fields are required'});
         }
-        const name = `${fisrtName} ${lastName}`;
+        const name = `${firstName} ${lastName}`;
         // Check if user already exists
         const
         user = await User.findUserByEmail(email);
