@@ -238,7 +238,7 @@ def generate_recommendation(user_id, user_prompt, max_words=60):
     try:
         # Fetch user profile from ChromaDB
         user_metadata = user_collection.get(ids=[str(user_id)], include=["metadatas", "documents"])
-        print(f"user_metadata: {user_metadata}")  
+        #print(f"user_metadata: {user_metadata}")  
         
         if not user_metadata or not user_metadata["documents"]:
             print(f"No profile found for user_id {user_id}")
@@ -318,7 +318,7 @@ def generate_job_recommendation(user_id, user_prompt, max_words=60):
     try:
         # Fetch user profile from ChromaDB
         user_metadata = user_collection.get(ids=[str(user_id)], include=["metadatas", "documents"])
-        print(f"user_metadata: {user_metadata}")  
+        #print(f"user_metadata: {user_metadata}")  
         
         if not user_metadata or not user_metadata["documents"]:
             print(f"No profile found for user_id {user_id}")
