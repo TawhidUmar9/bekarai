@@ -26,15 +26,8 @@ const profileRouter = require('./route/profile');
 const summarizeRouter = require('./route/summerize');
 const fetchskillRouter = require('./route/fetchskill');
 const registerCompanyRouter = require('./route/registercompany');
-
-// const versionHistoryRouter= require('./route/projectversioning');
-// const surveyversionHistoryRouter= require('./route/surveyversioning');
-
-// const question_import_from_question_bank_Router= require('./route/question_import_from_question_bank')
-
-//project
-// const UserprojectRouter = require('./route/projectviewUser');
-// const CollaboratorprojectRouter = require('./route/collaboratorView');
+const companyRouter = require('./route/company');
+const loginCompanyRouter = require('./route/logincompany');
 
 
 //connect db
@@ -60,6 +53,8 @@ app.use('/api/profile', profileRouter);
 app.use('/api/summerize', summarizeRouter);
 app.use('/api/fetchskill', fetchskillRouter);
 app.use('/api/registercompany', registerCompanyRouter);
+app.use('/api/company', companyRouter);
+app.use('/api/loginCompany', loginCompanyRouter);
 
 // app.use('/api', versionHistoryRouter);
 // app.use('/api', surveyversionHistoryRouter);
