@@ -28,6 +28,7 @@ const fetchskillRouter = require('./route/fetchskill');
 const registerCompanyRouter = require('./route/registercompany');
 const companyRouter = require('./route/company');
 const loginCompanyRouter = require('./route/logincompany');
+const courseRouter = require('./route/course');
 
 
 //connect db
@@ -55,6 +56,7 @@ app.use('/api/fetchskill', fetchskillRouter);
 app.use('/api/registercompany', registerCompanyRouter);
 app.use('/api/company', companyRouter);
 app.use('/api/loginCompany', loginCompanyRouter);
+app.use('/api/course', courseRouter);
 
 // app.use('/api', versionHistoryRouter);
 // app.use('/api', surveyversionHistoryRouter);
