@@ -11,7 +11,7 @@ import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
 
 # Configuration
-GEMINI_API_KEY = 'AIzaSyDB5HF5gOMtr4e8hYXFzCDFp-nfaIO77b0'
+
 CHROMA_DB_PATH = './chroma_db'
 DB_PASSWORD = 's9dE7Fyh7iNS0Vyx'
 SUPABASE_CONNECTION_STRING = "postgresql://postgres.wijfskxklffrhxqmmorm:s9dE7Fyh7iNS0Vyx@aws-0-ap-south-1.pooler.supabase.com:5432/postgres"
